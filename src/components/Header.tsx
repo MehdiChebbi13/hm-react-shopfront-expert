@@ -49,9 +49,9 @@ const Header = () => {
           {/* Center - Logo */}
           <div className="flex items-center justify-center flex-1">
             <img 
-              src="/lovable-uploads/850ce6f3-3077-447e-a7d5-f634b4f1bf6c.png" 
+              src="/lovable-uploads/69b552f1-586a-4e89-9275-11ee73acf808.png" 
               alt="Paola Di Battiglia" 
-              className="h-12 w-auto"
+              className="h-16 w-auto"
             />
           </div>
 
