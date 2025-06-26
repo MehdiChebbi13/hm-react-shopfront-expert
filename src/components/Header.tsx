@@ -10,24 +10,24 @@ const Header = () => {
   const { state } = useCart();
   const { searchQuery, setSearchQuery } = useProducts();
 
-  const categories = ['Femme', 'Homme', 'Enfant', 'H&M Home', 'Sport', 'Sustainability'];
+  const categories = ['Femme', 'Homme', 'Enfant', 'Maison', 'Sport'];
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
-      {/* Top banner */}
-      <div className="bg-black text-white text-center py-2 text-sm">
-        <p>Livraison gratuite à partir de 40€ | Retours gratuits</p>
+    <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
+      {/* Top banner - Plus minimaliste */}
+      <div className="bg-black text-white text-center py-2 text-xs font-light tracking-wide">
+        <p>LIVRAISON GRATUITE DÈS 40€</p>
       </div>
 
       {/* Main header */}
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Mobile menu button */}
           <button
-            className="md:hidden p-2"
+            className="md:hidden p-2 hover:bg-gray-50 rounded-sm"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
 
           {/* Logo */}
@@ -35,42 +35,42 @@ const Header = () => {
             <img 
               src="/lovable-uploads/850ce6f3-3077-447e-a7d5-f634b4f1bf6c.png" 
               alt="Paola Di Battiglia" 
-              className="h-12 w-auto"
+              className="h-8 w-auto"
             />
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          {/* Desktop Navigation - Style minimaliste */}
+          <nav className="hidden md:flex space-x-12">
             {categories.map((category) => (
               <a
                 key={category}
                 href="#"
-                className="text-gray-700 hover:text-black transition-colors duration-200 font-medium"
+                className="text-gray-900 text-sm font-light tracking-wide hover:text-gray-600 transition-colors duration-200 uppercase"
               >
                 {category}
               </a>
             ))}
           </nav>
 
-          {/* Right icons */}
-          <div className="flex items-center space-x-4">
+          {/* Right icons - Plus épurés */}
+          <div className="flex items-center space-x-2">
             {/* Search */}
             <div className="relative">
               <button
-                className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                className="p-3 hover:bg-gray-50 rounded-sm transition-colors"
                 onClick={() => setIsSearchOpen(!isSearchOpen)}
               >
-                <Search size={20} />
+                <Search size={18} />
               </button>
               
               {isSearchOpen && (
-                <div className="absolute right-0 top-12 w-80 bg-white shadow-lg rounded-lg p-4 border">
+                <div className="absolute right-0 top-12 w-80 bg-white shadow-xl border border-gray-100 p-4">
                   <input
                     type="text"
-                    placeholder="Rechercher des produits..."
+                    placeholder="Rechercher..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+                    className="w-full px-0 py-3 border-0 border-b border-gray-200 focus:outline-none focus:border-black text-sm"
                     autoFocus
                   />
                 </div>
@@ -78,15 +78,15 @@ const Header = () => {
             </div>
 
             {/* User account */}
-            <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
-              <User size={20} />
+            <button className="p-3 hover:bg-gray-50 rounded-sm transition-colors">
+              <User size={18} />
             </button>
 
             {/* Shopping cart */}
-            <button className="p-2 hover:bg-gray-100 rounded-full transition-colors relative">
-              <ShoppingBag size={20} />
+            <button className="p-3 hover:bg-gray-50 rounded-sm transition-colors relative">
+              <ShoppingBag size={18} />
               {state.itemCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                <span className="absolute top-1 right-1 bg-black text-white text-xs rounded-full h-4 w-4 flex items-center justify-center text-[10px]">
                   {state.itemCount}
                 </span>
               )}
@@ -94,15 +94,15 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile menu */}
+        {/* Mobile menu - Style épuré */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-gray-200 py-4">
-            <nav className="flex flex-col space-y-4">
+          <div className="md:hidden border-t border-gray-100 py-6">
+            <nav className="flex flex-col space-y-6">
               {categories.map((category) => (
                 <a
                   key={category}
                   href="#"
-                  className="text-gray-700 hover:text-black transition-colors duration-200 font-medium py-2"
+                  className="text-gray-900 text-sm font-light tracking-wide hover:text-gray-600 transition-colors duration-200 uppercase"
                 >
                   {category}
                 </a>
