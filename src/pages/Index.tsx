@@ -3,6 +3,7 @@ import React from 'react';
 import { CartProvider } from '@/context/CartContext';
 import { ProductProvider } from '@/context/ProductContext';
 import Header from '@/components/Header';
+import Hero from '@/components/Hero';
 import PromotionBanner from '@/components/PromotionBanner';
 import ProductFilters from '@/components/ProductFilters';
 import ProductGrid from '@/components/ProductGrid';
@@ -16,6 +17,7 @@ const Index = () => {
         <div className="min-h-screen bg-white">
           <Header />
           <main>
+            <Hero />
             <PromotionBanner />
             <ProductFilters />
             <ProductGrid />
