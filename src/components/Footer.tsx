@@ -5,13 +5,11 @@ import { Facebook, Instagram, Twitter, Youtube, Mail, Phone, MapPin } from 'luci
 const Footer = () => {
   const footerLinks = {
     shop: [
-      'Femme',
-      'Homme',
-      'Enfant',
-      'H&M Home',
-      'Sport',
-      'Nouveautés',
-      'Soldes'
+      'Costumes',
+      'Chemises',
+      'Accessoires',
+      'Sur Mesure',
+      'Consultations'
     ],
     customer: [
       'Service Client',
@@ -19,23 +17,14 @@ const Footer = () => {
       'Guide des Tailles',
       'Livraison',
       'Retours',
-      'FAQ',
       'Contact'
     ],
     company: [
       'À propos',
-      'Carrières',
-      'Développement Durable',
-      'Investisseurs',
-      'Presse',
-      'Responsabilité Sociale'
-    ],
-    legal: [
-      'Mentions Légales',
-      'Politique de Confidentialité',
-      'Conditions d\'Utilisation',
-      'Cookies',
-      'CGV'
+      'Atelier',
+      'Savoir-faire',
+      'Histoire',
+      'Presse'
     ]
   };
 
@@ -47,45 +36,45 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-white border-t border-gray-100">
       {/* Main footer content */}
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+      <div className="container mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand section */}
           <div className="lg:col-span-1">
             <img 
-              src="/lovable-uploads/850ce6f3-3077-447e-a7d5-f634b4f1bf6c.png" 
+              src="/lovable-uploads/69b552f1-586a-4e89-9275-11ee73acf808.png" 
               alt="Paola Di Battiglia" 
-              className="h-16 w-auto mb-4 filter brightness-0 invert"
+              className="h-12 w-auto mb-6"
             />
-            <p className="text-gray-400 text-sm mb-6">
-              Mode élégante et accessible pour tous. Découvrez notre collection de vêtements tendance.
+            <p className="text-gray-600 text-sm mb-8 leading-relaxed font-light">
+              Sartoria italiana d'eccellenza dal 1953. Ogni capo è realizzato a mano nei nostri atelier di Milano.
             </p>
             
             {/* Contact info */}
-            <div className="space-y-2 text-sm text-gray-400">
-              <div className="flex items-center gap-2">
-                <Phone size={14} />
-                <span>+33 1 23 45 67 89</span>
+            <div className="space-y-3 text-sm text-gray-500">
+              <div className="flex items-center gap-3">
+                <Phone size={14} className="text-gray-400" />
+                <span>+39 02 123 4567</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Mail size={14} />
-                <span>contact@paoladibattiglia.com</span>
+              <div className="flex items-center gap-3">
+                <Mail size={14} className="text-gray-400" />
+                <span>atelier@paoladibattiglia.it</span>
               </div>
-              <div className="flex items-center gap-2">
-                <MapPin size={14} />
-                <span>75001 Paris, France</span>
+              <div className="flex items-center gap-3">
+                <MapPin size={14} className="text-gray-400" />
+                <span>Via della Spiga, Milano</span>
               </div>
             </div>
           </div>
 
           {/* Shop links */}
           <div>
-            <h3 className="font-semibold mb-4">Boutique</h3>
-            <ul className="space-y-2">
+            <h3 className="font-medium text-gray-900 mb-6 text-sm tracking-wide uppercase">Collezioni</h3>
+            <ul className="space-y-3">
               {footerLinks.shop.map((link) => (
                 <li key={link}>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                  <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-light">
                     {link}
                   </a>
                 </li>
@@ -95,11 +84,11 @@ const Footer = () => {
 
           {/* Customer service */}
           <div>
-            <h3 className="font-semibold mb-4">Service Client</h3>
-            <ul className="space-y-2">
+            <h3 className="font-medium text-gray-900 mb-6 text-sm tracking-wide uppercase">Servizi</h3>
+            <ul className="space-y-3">
               {footerLinks.customer.map((link) => (
                 <li key={link}>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                  <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-light">
                     {link}
                   </a>
                 </li>
@@ -109,25 +98,11 @@ const Footer = () => {
 
           {/* Company */}
           <div>
-            <h3 className="font-semibold mb-4">Entreprise</h3>
-            <ul className="space-y-2">
+            <h3 className="font-medium text-gray-900 mb-6 text-sm tracking-wide uppercase">Maison</h3>
+            <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link}>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                    {link}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h3 className="font-semibold mb-4">Légal</h3>
-            <ul className="space-y-2">
-              {footerLinks.legal.map((link) => (
-                <li key={link}>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                  <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-light">
                     {link}
                   </a>
                 </li>
@@ -136,42 +111,26 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Newsletter signup */}
-        <div className="border-t border-gray-800 pt-8 mt-8">
-          <div className="text-center">
-            <h3 className="font-semibold mb-2">Suivez-nous sur les réseaux sociaux</h3>
-            <p className="text-gray-400 text-sm mb-6">
-              Restez connecté pour les dernières actualités et inspirations mode
-            </p>
-            
-            {/* Social links */}
-            <div className="flex justify-center gap-4 mb-8">
+        {/* Social links */}
+        <div className="border-t border-gray-100 pt-12 mt-16">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="flex gap-6 mb-6 md:mb-0">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
                   href={social.href}
-                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors"
+                  className="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-gray-600 transition-colors"
                   aria-label={social.label}
                 >
-                  <social.icon size={18} />
+                  <social.icon size={16} />
                 </a>
               ))}
             </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom bar */}
-      <div className="border-t border-gray-800">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-            <p>&copy; 2024 Paola Di Battiglia. Tous droits réservés.</p>
-            <div className="flex gap-4 mt-2 md:mt-0">
-              <span>Paiement sécurisé</span>
-              <span>•</span>
-              <span>Livraison rapide</span>
-              <span>•</span>
-              <span>Satisfaction garantie</span>
+            
+            <div className="text-center md:text-right">
+              <p className="text-xs text-gray-500 font-light tracking-wide">
+                © 2024 Paola Di Battiglia • Sartoria Italiana
+              </p>
             </div>
           </div>
         </div>
