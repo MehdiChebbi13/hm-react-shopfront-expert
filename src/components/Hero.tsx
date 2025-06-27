@@ -1,14 +1,13 @@
-
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
   return (
     <section className="relative h-screen overflow-hidden bg-gray-900">
-      {/* Background Image - Italian tailoring focused */}
+      {/* Background Image - Your uploaded tailoring image */}
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=1920&h=1080&fit=crop&crop=center"
+          src="/lovable-uploads/47f47df0-faf6-4178-8ae1-526655f4230c.png"
           alt="Italian Tailoring"
           className="w-full h-full object-cover"
         />
