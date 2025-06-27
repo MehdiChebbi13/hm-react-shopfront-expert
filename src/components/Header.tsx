@@ -10,23 +10,23 @@ const Header = () => {
   const { state } = useCart();
   const { searchQuery, setSearchQuery } = useProducts();
 
-  const categories = ['Femme', 'Homme', 'Enfant', 'Maison', 'Sport'];
+  const categories = ['Costumes', 'Chemises', 'Accessoires', 'Sur Mesure', 'Atelier'];
 
   return (
-    <header className="bg-amber-50 border-b border-gray-100 sticky top-0 z-50">
+    <header className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
       {/* Top banner */}
-      <div className="bg-black text-white text-center py-2 text-xs font-light tracking-wide">
-        <p>LIVRAISON GRATUITE DÈS 40€</p>
+      <div className="bg-gray-900 text-white text-center py-2 text-xs font-light tracking-wide">
+        <p>CONSULTATION GRATUITE • LIVRAISON DANS TOUTE L'EUROPE</p>
       </div>
 
       {/* Main header */}
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-24">
+        <div className="flex items-center justify-between h-20">
           {/* Left side - Mobile menu + Desktop nav */}
           <div className="flex items-center flex-1">
             {/* Mobile menu button */}
             <button
-              className="md:hidden p-2 hover:bg-amber-100 rounded-sm mr-4"
+              className="md:hidden p-2 hover:bg-gray-100 rounded-sm mr-4"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -38,7 +38,7 @@ const Header = () => {
                 <a
                   key={category}
                   href="#"
-                  className="text-gray-900 text-sm font-light tracking-wide hover:text-gray-600 transition-colors duration-200 uppercase"
+                  className="text-gray-900 text-sm font-medium tracking-wide hover:text-gray-600 transition-colors duration-200 uppercase"
                 >
                   {category}
                 </a>
@@ -46,12 +46,12 @@ const Header = () => {
             </nav>
           </div>
 
-          {/* Center - Logo */}
+          {/* Center - Smaller logo for header */}
           <div className="flex items-center justify-center flex-1">
             <img 
               src="/lovable-uploads/69b552f1-586a-4e89-9275-11ee73acf808.png" 
               alt="Paola Di Battiglia" 
-              className="h-16 w-auto"
+              className="h-12 w-auto"
             />
           </div>
 
@@ -63,7 +63,7 @@ const Header = () => {
                 <a
                   key={category}
                   href="#"
-                  className="text-gray-900 text-sm font-light tracking-wide hover:text-gray-600 transition-colors duration-200 uppercase"
+                  className="text-gray-900 text-sm font-medium tracking-wide hover:text-gray-600 transition-colors duration-200 uppercase"
                 >
                   {category}
                 </a>
@@ -75,7 +75,7 @@ const Header = () => {
               {/* Search */}
               <div className="relative">
                 <button
-                  className="p-3 hover:bg-amber-100 rounded-sm transition-colors"
+                  className="p-3 hover:bg-gray-100 rounded-sm transition-colors"
                   onClick={() => setIsSearchOpen(!isSearchOpen)}
                 >
                   <Search size={18} />
@@ -96,12 +96,12 @@ const Header = () => {
               </div>
 
               {/* User account */}
-              <button className="p-3 hover:bg-amber-100 rounded-sm transition-colors">
+              <button className="p-3 hover:bg-gray-100 rounded-sm transition-colors">
                 <User size={18} />
               </button>
 
               {/* Shopping cart */}
-              <button className="p-3 hover:bg-amber-100 rounded-sm transition-colors relative">
+              <button className="p-3 hover:bg-gray-100 rounded-sm transition-colors relative">
                 <ShoppingBag size={18} />
                 {state.itemCount > 0 && (
                   <span className="absolute top-1 right-1 bg-black text-white text-xs rounded-full h-4 w-4 flex items-center justify-center text-[10px]">
@@ -121,7 +121,7 @@ const Header = () => {
                 <a
                   key={category}
                   href="#"
-                  className="text-gray-900 text-sm font-light tracking-wide hover:text-gray-600 transition-colors duration-200 uppercase"
+                  className="text-gray-900 text-sm font-medium tracking-wide hover:text-gray-600 transition-colors duration-200 uppercase"
                 >
                   {category}
                 </a>

@@ -4,40 +4,69 @@ import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className="relative h-screen overflow-hidden">
-      {/* Background Image */}
+    <section className="relative h-screen overflow-hidden bg-gray-900">
+      {/* Background Image - Italian tailoring focused */}
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1920&h=1080&fit=crop&crop=center"
-          alt="Hero"
+          src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=1920&h=1080&fit=crop&crop=center"
+          alt="Italian Tailoring"
           className="w-full h-full object-cover"
         />
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center justify-center">
-        <div className="text-center text-white max-w-2xl px-4">
-          <h1 className="text-4xl md:text-6xl font-extralight mb-6 tracking-wider uppercase leading-tight">
-            Nouvelle
-            <br />
-            Collection
+      <div className="relative z-10 h-full flex flex-col items-center justify-center">
+        {/* Prominent Logo */}
+        <div className="mb-12">
+          <img 
+            src="/lovable-uploads/69b552f1-586a-4e89-9275-11ee73acf808.png" 
+            alt="Paola Di Battiglia" 
+            className="h-24 md:h-32 w-auto mx-auto filter drop-shadow-2xl"
+          />
+        </div>
+
+        <div className="text-center text-white max-w-3xl px-4">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-light mb-6 tracking-wide leading-tight">
+            SARTORIA ITALIANA
           </h1>
           
-          <p className="text-lg md:text-xl font-light mb-8 tracking-wide opacity-90 max-w-lg mx-auto">
-            Découvrez l'élégance intemporelle à travers nos créations exclusives
+          <h2 className="text-xl md:text-2xl font-extralight mb-8 tracking-wider opacity-90 italic">
+            L'Arte del Vestire Maschile
+          </h2>
+
+          <p className="text-base md:text-lg font-light mb-12 tracking-wide opacity-80 max-w-2xl mx-auto leading-relaxed">
+            Depuis trois générations, nous créons des costumes sur mesure qui incarnent l'excellence de la tradition sartoriale italienne. Chaque pièce est une œuvre d'art, façonnée à la main dans nos ateliers de Milan.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="group px-8 py-4 bg-white text-black font-light text-sm tracking-widest uppercase hover:bg-gray-100 transition-all duration-300 flex items-center gap-3">
-              Découvrir
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <button className="group px-10 py-4 bg-white text-black font-medium text-sm tracking-widest uppercase hover:bg-gray-100 transition-all duration-300 flex items-center gap-3 shadow-lg">
+              Découvrir la Collection
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
             </button>
             
-            <button className="px-8 py-4 border border-white text-white font-light text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300">
-              Lookbook
+            <button className="px-10 py-4 border-2 border-white text-white font-medium text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300">
+              Prendre Rendez-vous
             </button>
+          </div>
+
+          {/* Italian craftsmanship badges */}
+          <div className="flex justify-center items-center gap-8 mt-16 opacity-70">
+            <div className="text-center">
+              <div className="text-2xl font-light mb-1">100%</div>
+              <div className="text-xs tracking-wide uppercase">Fait Main</div>
+            </div>
+            <div className="w-px h-12 bg-white opacity-30"></div>
+            <div className="text-center">
+              <div className="text-2xl font-light mb-1">1953</div>
+              <div className="text-xs tracking-wide uppercase">Depuis</div>
+            </div>
+            <div className="w-px h-12 bg-white opacity-30"></div>
+            <div className="text-center">
+              <div className="text-2xl font-light mb-1">Milano</div>
+              <div className="text-xs tracking-wide uppercase">Atelier</div>
+            </div>
           </div>
         </div>
       </div>
