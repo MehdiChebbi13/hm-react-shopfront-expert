@@ -15,7 +15,7 @@ const ProductFilters = () => {
     updateFilters({
       category: '',
       minPrice: 0,
-      maxPrice: 1000,
+      maxPrice: 5000,
       size: '',
       color: '',
       sortBy: 'name'
@@ -23,7 +23,7 @@ const ProductFilters = () => {
   };
 
   const hasActiveFilters = filters.category || filters.size || filters.color || 
-                          filters.minPrice > 0 || filters.maxPrice < 1000;
+                          filters.minPrice > 0 || filters.maxPrice < 5000;
 
   return (
     <div className="bg-white border-b border-gray-200">
@@ -88,7 +88,7 @@ const ProductFilters = () => {
 
               {/* Price filter */}
               <div>
-                <h3 className="font-medium mb-3">Prix</h3>
+                <h3 className="font-medium mb-3">Prix (€)</h3>
                 <div className="space-y-2">
                   <div className="flex gap-2">
                     <input
@@ -101,8 +101,8 @@ const ProductFilters = () => {
                     <input
                       type="number"
                       placeholder="Max"
-                      value={filters.maxPrice === 1000 ? '' : filters.maxPrice}
-                      onChange={(e) => updateFilters({ maxPrice: Number(e.target.value) || 1000 })}
+                      value={filters.maxPrice === 5000 ? '' : filters.maxPrice}
+                      onChange={(e) => updateFilters({ maxPrice: Number(e.target.value) || 5000 })}
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
                     />
                   </div>

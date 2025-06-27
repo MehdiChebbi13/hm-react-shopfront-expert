@@ -38,123 +38,161 @@ interface ProductContextType {
 
 const ProductContext = createContext<ProductContextType | null>(null);
 
-// Mock data pour les produits
+// Luxury Italian tailoring products
 const mockProducts: Product[] = [
   {
     id: '1',
-    name: 'Robe en lin élégante',
-    price: 49.99,
-    originalPrice: 79.99,
-    image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=500&fit=crop',
+    name: 'Costume Trois Pièces Milano',
+    price: 2890,
+    originalPrice: 3200,
+    image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&h=500&fit=crop',
     images: [
-      'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=500&fit=crop',
-      'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=500&fit=crop'
+      'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&h=500&fit=crop',
+      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop'
     ],
-    category: 'Robes',
-    sizes: ['XS', 'S', 'M', 'L', 'XL'],
-    colors: ['Beige', 'Noir', 'Blanc'],
-    description: 'Robe en lin naturel parfaite pour l\'été. Coupe fluide et confortable.',
+    category: 'Costumes',
+    sizes: ['46', '48', '50', '52', '54', '56'],
+    colors: ['Bleu Marine', 'Charbon', 'Anthracite'],
+    description: 'Costume trois pièces confectionné à la main dans nos ateliers milanais. Laine Super 150s, coupe sartoriale traditionnelle avec finitions main couture.',
     isNew: false,
     isOnSale: true,
-    rating: 4.5,
-    reviews: 124,
-    stock: 15
+    rating: 4.9,
+    reviews: 87,
+    stock: 8
   },
   {
     id: '2',
-    name: 'Chemise en coton premium',
-    price: 34.99,
+    name: 'Chemise Napoli Cotton',
+    price: 245,
     image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=500&fit=crop',
     images: [
       'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=500&fit=crop',
       'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=500&fit=crop'
     ],
     category: 'Chemises',
-    sizes: ['S', 'M', 'L', 'XL'],
-    colors: ['Blanc', 'Bleu', 'Rose'],
-    description: 'Chemise classique en coton 100% biologique. Parfaite pour le bureau.',
+    sizes: ['38', '39', '40', '41', '42', '43', '44'],
+    colors: ['Blanc', 'Bleu Ciel', 'Rose Poudré'],
+    description: 'Chemise en coton égyptien 100% façonnée selon la tradition napolitaine. Col italien, poignets mousquetaires, coutures roulottées main.',
     isNew: true,
     isOnSale: false,
     rating: 4.8,
-    reviews: 89,
-    stock: 22
+    reviews: 124,
+    stock: 15
   },
   {
     id: '3',
-    name: 'Jean skinny stretch',
-    price: 59.99,
-    image: 'https://images.unsplash.com/photo-1582418702059-97ebafb35d09?w=400&h=500&fit=crop',
-    images: [
-      'https://images.unsplash.com/photo-1582418702059-97ebafb35d09?w=400&h=500&fit=crop',
-      'https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?w=400&h=500&fit=crop'
-    ],
-    category: 'Jeans',
-    sizes: ['25', '26', '27', '28', '29', '30', '31', '32'],
-    colors: ['Bleu foncé', 'Bleu clair', 'Noir'],
-    description: 'Jean skinny avec technologie stretch pour un confort optimal.',
-    isNew: false,
-    isOnSale: false,
-    rating: 4.3,
-    reviews: 256,
-    stock: 8
-  },
-  {
-    id: '4',
-    name: 'Pull en cachemire',
-    price: 89.99,
-    originalPrice: 129.99,
-    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=500&fit=crop',
-    images: [
-      'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=500&fit=crop',
-      'https://images.unsplash.com/photo-1583743089696-4b3ccb4b7ad3?w=400&h=500&fit=crop'
-    ],
-    category: 'Pulls',
-    sizes: ['XS', 'S', 'M', 'L'],
-    colors: ['Gris', 'Beige', 'Noir', 'Crème'],
-    description: 'Pull doux en cachemire mélangé. Élégance et confort réunis.',
-    isNew: true,
-    isOnSale: true,
-    rating: 4.9,
-    reviews: 67,
-    stock: 12
-  },
-  {
-    id: '5',
-    name: 'Veste blazer moderne',
-    price: 79.99,
+    name: 'Veste Smoking Venezia',
+    price: 1890,
     image: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=500&fit=crop',
     images: [
       'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=500&fit=crop',
       'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=500&fit=crop'
     ],
-    category: 'Vestes',
-    sizes: ['S', 'M', 'L', 'XL'],
-    colors: ['Noir', 'Marine', 'Gris'],
-    description: 'Blazer moderne avec coupe ajustée. Idéal pour un look professionnel.',
+    category: 'Smoking',
+    sizes: ['46', '48', '50', '52', '54'],
+    colors: ['Noir', 'Bleu Minuit'],
+    description: 'Veste de smoking en laine mohair avec revers en soie. Confection artisanale vénitienne, boutonnière fonctionnelle, doublure jacquard.',
     isNew: false,
     isOnSale: false,
-    rating: 4.6,
-    reviews: 143,
-    stock: 18
+    rating: 4.9,
+    reviews: 56,
+    stock: 6
+  },
+  {
+    id: '4',
+    name: 'Manteau Cachemire Firenze',
+    price: 2450,
+    originalPrice: 2890,
+    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=500&fit=crop',
+    images: [
+      'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=500&fit=crop',
+      'https://images.unsplash.com/photo-1583743089696-4b3ccb4b7ad3?w=400&h=500&fit=crop'
+    ],
+    category: 'Manteaux',
+    sizes: ['46', '48', '50', '52', '54'],
+    colors: ['Camel', 'Gris Anthracite', 'Bleu Marine'],
+    description: 'Manteau en pur cachemire de Mongolie, doublure en soie. Coupe droite florentine, col italien, finitions main couture.',
+    isNew: true,
+    isOnSale: true,
+    rating: 4.9,
+    reviews: 43,
+    stock: 4
+  },
+  {
+    id: '5',
+    name: 'Costume Cérémonie Roma',
+    price: 3200,
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop',
+    images: [
+      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop',
+      'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&h=500&fit=crop'
+    ],
+    category: 'Costumes',
+    sizes: ['46', '48', '50', '52', '54', '56'],
+    colors: ['Gris Perle', 'Charbon', 'Bleu Nuit'],
+    description: 'Costume de cérémonie en laine Super 180s. Confection romaine traditionnelle, gilet assorti, détails en nacre véritable.',
+    isNew: false,
+    isOnSale: false,
+    rating: 5.0,
+    reviews: 28,
+    stock: 3
   },
   {
     id: '6',
-    name: 'T-shirt basique premium',
-    price: 19.99,
+    name: 'Cravate Soie Como',
+    price: 185,
     image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=500&fit=crop',
     images: [
       'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=500&fit=crop',
       'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=500&fit=crop'
     ],
-    category: 'T-shirts',
-    sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
-    colors: ['Blanc', 'Noir', 'Gris', 'Marine', 'Rouge'],
-    description: 'T-shirt basique en coton bio. Essentiel de la garde-robe.',
+    category: 'Accessoires',
+    sizes: ['Unique'],
+    colors: ['Bordeaux', 'Bleu Marine', 'Vert Bouteille', 'Argenté'],
+    description: 'Cravate en pure soie de Côme, tissage jacquard traditionnel. Motifs géométriques exclusifs, finition main roulottée.',
     isNew: true,
     isOnSale: false,
-    rating: 4.2,
-    reviews: 312,
-    stock: 45
+    rating: 4.7,
+    reviews: 92,
+    stock: 25
+  },
+  {
+    id: '7',
+    name: 'Pochette Soie Pura',
+    price: 95,
+    image: 'https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?w=400&h=500&fit=crop',
+    images: [
+      'https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?w=400&h=500&fit=crop',
+      'https://images.unsplash.com/photo-1582418702059-97ebafb35d09?w=400&h=500&fit=crop'
+    ],
+    category: 'Accessoires',
+    sizes: ['Unique'],
+    colors: ['Blanc', 'Champagne', 'Bleu Ciel', 'Rose'],
+    description: 'Pochette de costume en soie pure italienne. Pliage traditionnel, bords roulottés main, motifs floraux délicats.',
+    isNew: false,
+    isOnSale: false,
+    rating: 4.6,
+    reviews: 67,
+    stock: 18
+  },
+  {
+    id: '8',
+    name: 'Gilet Laine Torino',
+    price: 890,
+    image: 'https://images.unsplash.com/photo-1583743089696-4b3ccb4b7ad3?w=400&h=500&fit=crop',
+    images: [
+      'https://images.unsplash.com/photo-1583743089696-4b3ccb4b7ad3?w=400&h=500&fit=crop',
+      'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=500&fit=crop'
+    ],
+    category: 'Gilets',
+    sizes: ['46', '48', '50', '52', '54'],
+    colors: ['Gris Chiné', 'Bleu Marine', 'Beige'],
+    description: 'Gilet en laine mérinos, confection turinoise. Dos en soie, boutons en corne naturelle, ajustement parfait.',
+    isNew: true,
+    isOnSale: false,
+    rating: 4.8,
+    reviews: 34,
+    stock: 12
   }
 ];
 
@@ -164,7 +202,7 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
   const [filters, setFilters] = useState({
     category: '',
     minPrice: 0,
-    maxPrice: 1000,
+    maxPrice: 5000,
     size: '',
     color: '',
     sortBy: 'name'
