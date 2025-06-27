@@ -1,8 +1,7 @@
-
-import React, { useState } from 'react';
-import { Search, ShoppingBag, User, Menu, X } from 'lucide-react';
-import { useCart } from '@/context/CartContext';
-import { useProducts } from '@/context/ProductContext';
+import React, { useState } from "react";
+import { Search, ShoppingBag, User, Menu, X } from "lucide-react";
+import { useCart } from "@/context/CartContext";
+import { useProducts } from "@/context/ProductContext";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,7 +9,7 @@ const Header = () => {
   const { state } = useCart();
   const { searchQuery, setSearchQuery } = useProducts();
 
-  const categories = ['Costumes', 'Chemises', 'Accessoires', 'Sur Mesure', 'Atelier'];
+  const categories = ["Costumes", "Chemises", "Accessoires", "Atelier"];
 
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
@@ -48,10 +47,10 @@ const Header = () => {
 
           {/* Center - Smaller logo for header */}
           <div className="flex items-center justify-center flex-1">
-            <img 
-              src="/lovable-uploads/69b552f1-586a-4e89-9275-11ee73acf808.png" 
-              alt="Paola Di Battiglia" 
-              className="h-12 w-auto"
+            <img
+              src="/lovable-uploads/69b552f1-586a-4e89-9275-11ee73acf808.png"
+              alt="Paola Di Battiglia"
+              className="h-14 w-auto"
             />
           </div>
 
@@ -80,7 +79,7 @@ const Header = () => {
                 >
                   <Search size={18} />
                 </button>
-                
+
                 {isSearchOpen && (
                   <div className="absolute right-0 top-12 w-80 bg-white shadow-xl border border-gray-100 p-4">
                     <input

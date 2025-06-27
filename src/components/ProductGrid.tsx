@@ -1,9 +1,8 @@
-
-import React, { useState } from 'react';
-import { useProducts } from '@/context/ProductContext';
-import ProductCard from './ProductCard';
-import ProductModal from './ProductModal';
-import { Product } from '@/context/ProductContext';
+import React, { useState } from "react";
+import { useProducts } from "@/context/ProductContext";
+import ProductCard from "./ProductCard";
+import ProductModal from "./ProductModal";
+import { Product } from "@/context/ProductContext";
 
 const ProductGrid = () => {
   const { filteredProducts } = useProducts();
@@ -33,7 +32,7 @@ const ProductGrid = () => {
   return (
     <>
       <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 py-2 gap-0">
           {filteredProducts.map((product) => (
             <ProductCard
               key={product.id}

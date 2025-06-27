@@ -1,9 +1,8 @@
-
-import React, { useState } from 'react';
-import { Heart, ShoppingBag, Star } from 'lucide-react';
-import { Product } from '@/context/ProductContext';
-import { useCart } from '@/context/CartContext';
-import { useToast } from '@/hooks/use-toast';
+import React, { useState } from "react";
+import { Heart, ShoppingBag, Star } from "lucide-react";
+import { Product } from "@/context/ProductContext";
+import { useCart } from "@/context/CartContext";
+import { useToast } from "@/hooks/use-toast";
 
 interface ProductCardProps {
   product: Product;
@@ -12,7 +11,7 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const [selectedSize, setSelectedSize] = useState('');
+  const [selectedSize, setSelectedSize] = useState("");
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
   const { addToCart } = useCart();
   const { toast } = useToast();
@@ -20,7 +19,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }) => {
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    
+
     if (!selectedSize) {
       toast({
         title: "Taille requise",
@@ -47,13 +46,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }) => {
   };
 
   return (
-    <div 
+    <div
       className="group cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={() => onQuickView?.(product)}
     >
-      <div className="relative overflow-hidden rounded-lg bg-gray-100 aspect-[3/4]">
+      <div className="relative overflow-hidden my-4 bg-gray-100 aspect-[3/4]">
         {/* Product badges */}
         <div className="absolute top-2 left-2 z-10 flex flex-col gap-1">
           {product.isNew && (
@@ -81,9 +80,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }) => {
         />
 
         {/* Quick add overlay */}
-        <div className={`absolute inset-0 bg-black bg-opacity-50 flex items-end justify-center p-4 transition-opacity duration-300 ${
-          isHovered ? 'opacity-100' : 'opacity-0'
-        }`}>
+        <div
+          className={`absolute inset-0 bg-black bg-opacity-50 flex items-end justify-center p-4 transition-opacity duration-300 ${
+            isHovered ? "opacity-100" : "opacity-0"
+          }`}
+        >
           <div className="w-full space-y-2">
             {/* Size selection */}
             <div className="flex flex-wrap gap-1 justify-center">
@@ -96,8 +97,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }) => {
                   }}
                   className={`px-2 py-1 text-xs font-medium rounded transition-colors ${
                     selectedSize === size
-                      ? 'bg-white text-black'
-                      : 'bg-gray-200 text-gray-700 hover:bg-white hover:text-black'
+                      ? "bg-white text-black"
+                      : "bg-gray-200 text-gray-700 hover:bg-white hover:text-black"
                   }`}
                 >
                   {size}
@@ -122,15 +123,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }) => {
         <h3 className="text-sm font-medium text-gray-900 group-hover:text-black transition-colors">
           {product.name}
         </h3>
-        
-        <div className="flex items-center gap-2">
-          <div className="flex items-center">
-            <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
-            <span className="text-xs text-gray-600 ml-1">
-              {product.rating} ({product.reviews})
-            </span>
-          </div>
-        </div>
 
         <div className="flex items-center gap-2">
           <span className="text-sm font-medium text-gray-900">
@@ -141,34 +133,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }) => {
               {product.originalPrice}€
             </span>
           )}
-        </div>
-
-        {/* Color options */}
-        <div className="flex gap-1 mt-2">
-          {product.colors.slice(0, 4).map((color, index) => (
-            <button
-              key={color}
-              onClick={(e) => {
-                e.stopPropagation();
-                setSelectedColor(color);
-              }}
-              className={`w-4 h-4 rounded-full border-2 transition-all ${
-                selectedColor === color ? 'border-black' : 'border-gray-300'
-              }`}
-              style={{ 
-                backgroundColor: color.toLowerCase() === 'blanc' ? '#fff' : 
-                                color.toLowerCase() === 'noir' ? '#000' :
-                                color.toLowerCase() === 'rouge' ? '#ef4444' :
-                                color.toLowerCase() === 'bleu' ? '#3b82f6' :
-                                color.toLowerCase() === 'vert' ? '#22c55e' :
-                                color.toLowerCase() === 'rose' ? '#ec4899' :
-                                color.toLowerCase() === 'gris' ? '#6b7280' :
-                                color.toLowerCase() === 'beige' ? '#d2b48c' :
-                                '#9ca3af'
-              }}
-              title={color}
-            />
-          ))}
         </div>
       </div>
     </div>
