@@ -4,6 +4,13 @@ import { Search, ShoppingBag, User, Menu, X } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { useProducts } from "@/context/ProductContext";
 import CartDropdown from "./CartDropdown";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,13 +44,26 @@ const Header = () => {
             {/* Desktop Navigation */}
             <nav className="hidden md:flex space-x-8">
               {categories.slice(0, 2).map((category) => (
-                <a
-                  key={category}
-                  href="#"
-                  className="text-gray-900 text-sm font-medium tracking-wide hover:text-gray-600 transition-colors duration-200 uppercase"
-                >
-                  {category}
-                </a>
+                <DropdownMenu key={category}>
+                  <DropdownMenuTrigger className="text-gray-900 text-sm font-medium tracking-wide hover:text-gray-600 transition-colors duration-200 uppercase outline-none">
+                    {category}
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="start" className="w-48 bg-white shadow-lg border border-gray-100">
+                    <DropdownMenuItem className="hover:bg-gray-50 cursor-pointer">
+                      Voir tout
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem className="hover:bg-gray-50 cursor-pointer">
+                      Nouveautés
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="hover:bg-gray-50 cursor-pointer">
+                      Collection Classique
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="hover:bg-gray-50 cursor-pointer">
+                      Sur Mesure
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               ))}
             </nav>
           </div>
@@ -62,45 +82,96 @@ const Header = () => {
             {/* Desktop Navigation (remaining categories) */}
             <nav className="hidden md:flex space-x-8 mr-6">
               {categories.slice(2).map((category) => (
-                <a
-                  key={category}
-                  href="#"
-                  className="text-gray-900 text-sm font-medium tracking-wide hover:text-gray-600 transition-colors duration-200 uppercase"
-                >
-                  {category}
-                </a>
+                <DropdownMenu key={category}>
+                  <DropdownMenuTrigger className="text-gray-900 text-sm font-medium tracking-wide hover:text-gray-600 transition-colors duration-200 uppercase outline-none">
+                    {category}
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="start" className="w-48 bg-white shadow-lg border border-gray-100">
+                    <DropdownMenuItem className="hover:bg-gray-50 cursor-pointer">
+                      Voir tout
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem className="hover:bg-gray-50 cursor-pointer">
+                      Cravates & Nœuds
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="hover:bg-gray-50 cursor-pointer">
+                      Boutons de Manchette
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="hover:bg-gray-50 cursor-pointer">
+                      Pochettes
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               ))}
             </nav>
 
             {/* Icons */}
             <div className="flex items-center space-x-2">
               {/* Search */}
-              <div className="relative">
-                <button
-                  className="p-3 hover:bg-gray-100 rounded-sm transition-colors"
-                  onClick={() => setIsSearchOpen(!isSearchOpen)}
-                >
-                  <Search size={18} />
-                </button>
-
-                {isSearchOpen && (
-                  <div className="absolute right-0 top-12 w-80 bg-white shadow-xl border border-gray-100 p-4 z-50">
+              <DropdownMenu open={isSearchOpen} onOpenChange={setIsSearchOpen}>
+                <DropdownMenuTrigger asChild>
+                  <button className="p-3 hover:bg-gray-100 rounded-sm transition-colors">
+                    <Search size={18} />
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-80 bg-white shadow-xl border border-gray-100 p-4">
+                  <div className="space-y-3">
                     <input
                       type="text"
-                      placeholder="Rechercher..."
+                      placeholder="Rechercher des produits..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      className="w-full px-0 py-3 border-0 border-b border-gray-200 focus:outline-none focus:border-black text-sm"
+                      className="w-full px-0 py-3 border-0 border-b border-gray-200 focus:outline-none focus:border-black text-sm bg-transparent"
                       autoFocus
                     />
+                    <div className="pt-2">
+                      <p className="text-xs text-gray-500 mb-2">Recherches populaires:</p>
+                      <div className="flex flex-wrap gap-2">
+                        <button className="text-xs bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded-full transition-colors">
+                          Costume sur mesure
+                        </button>
+                        <button className="text-xs bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded-full transition-colors">
+                          Chemise blanche
+                        </button>
+                        <button className="text-xs bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded-full transition-colors">
+                          Cravate soie
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                )}
-              </div>
+                </DropdownMenuContent>
+              </DropdownMenu>
 
               {/* User account */}
-              <button className="p-3 hover:bg-gray-100 rounded-sm transition-colors">
-                <User size={18} />
-              </button>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <button className="p-3 hover:bg-gray-100 rounded-sm transition-colors">
+                    <User size={18} />
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56 bg-white shadow-lg border border-gray-100">
+                  <DropdownMenuItem className="hover:bg-gray-50 cursor-pointer">
+                    Mon Compte
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="hover:bg-gray-50 cursor-pointer">
+                    Mes Commandes
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="hover:bg-gray-50 cursor-pointer">
+                    Mes Mesures
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="hover:bg-gray-50 cursor-pointer">
+                    Rendez-vous Atelier
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem className="hover:bg-gray-50 cursor-pointer">
+                    Service Client
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem className="hover:bg-gray-50 cursor-pointer">
+                    Se Connecter
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
 
               {/* Shopping cart */}
               <div className="relative">
