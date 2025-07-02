@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { CartProvider } from '@/context/CartContext';
 import { ProductProvider } from '@/context/ProductContext';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
@@ -12,21 +11,19 @@ import Footer from '@/components/Footer';
 
 const Index = () => {
   return (
-    <CartProvider>
-      <ProductProvider>
-        <div className="min-h-screen bg-white">
-          <Header />
-          <main>
-            <Hero />
-            <PromotionBanner />
-            <ProductFilters />
-            <ProductGrid />
-            <Newsletter />
-          </main>
-          <Footer />
-        </div>
-      </ProductProvider>
-    </CartProvider>
+    <ProductProvider>
+      <div className="min-h-screen bg-white">
+        <Header />
+        <main>
+          <Hero />
+          <PromotionBanner />
+          <ProductFilters />
+          <ProductGrid />
+          <Newsletter />
+        </main>
+        <Footer />
+      </div>
+    </ProductProvider>
   );
 };
 
