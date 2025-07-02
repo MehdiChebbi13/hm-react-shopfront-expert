@@ -1,11 +1,14 @@
+
 import React, { useState } from "react";
 import { Search, ShoppingBag, User, Menu, X } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { useProducts } from "@/context/ProductContext";
+import CartDropdown from "./CartDropdown";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
   const { state } = useCart();
   const { searchQuery, setSearchQuery } = useProducts();
 
@@ -81,7 +84,7 @@ const Header = () => {
                 </button>
 
                 {isSearchOpen && (
-                  <div className="absolute right-0 top-12 w-80 bg-white shadow-xl border border-gray-100 p-4">
+                  <div className="absolute right-0 top-12 w-80 bg-white shadow-xl border border-gray-100 p-4 z-50">
                     <input
                       type="text"
                       placeholder="Rechercher..."
@@ -100,14 +103,24 @@ const Header = () => {
               </button>
 
               {/* Shopping cart */}
-              <button className="p-3 hover:bg-gray-100 rounded-sm transition-colors relative">
-                <ShoppingBag size={18} />
-                {state.itemCount > 0 && (
-                  <span className="absolute top-1 right-1 bg-black text-white text-xs rounded-full h-4 w-4 flex items-center justify-center text-[10px]">
-                    {state.itemCount}
-                  </span>
-                )}
-              </button>
+              <div className="relative">
+                <button 
+                  className="p-3 hover:bg-gray-100 rounded-sm transition-colors relative"
+                  onClick={() => setIsCartOpen(!isCartOpen)}
+                >
+                  <ShoppingBag size={18} />
+                  {state.itemCount > 0 && (
+                    <span className="absolute top-1 right-1 bg-black text-white text-xs rounded-full h-4 w-4 flex items-center justify-center text-[10px]">
+                      {state.itemCount}
+                    </span>
+                  )}
+                </button>
+
+                <CartDropdown 
+                  isOpen={isCartOpen} 
+                  onClose={() => setIsCartOpen(false)} 
+                />
+              </div>
             </div>
           </div>
         </div>
